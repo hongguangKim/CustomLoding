@@ -1,0 +1,23 @@
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/com.example.smartloading"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.smartloading.MainActivity" >
+
+    <com.example.view.SmartLoading
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E91E63"
+        custom:dividerSize="2dp"
+        custom:squareColor="@android:color/white"
+        custom:squareCorner="2dp"
+        custom:squareSize="12dp"
+        custom:xCount="4"
+        custom:yCount="1" />
+
+</RelativeLayout>
