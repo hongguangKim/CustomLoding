@@ -1,13 +1,30 @@
 # CustomLoding
 制作了一个loding的animation custom view<br>
-通过XxX的小方框组成的view一次播放多方（1x1 ~ 6x6）<br>
+在SquareLoading项目基础上修改了一些问题和逻辑<br>
+通过XxX的小方框组成的view一次播放小方块（1x1 ~ 6x6）<br>
 # Demo
 ![demo](https://raw.githubusercontent.com/hongguangKim/CustomLoding/master/Demo/demo.PNG)
 # Logic
 ![demo](https://raw.githubusercontent.com/hongguangKim/CustomLoding/master/Demo/animation.png)
+<br>当然只有一行时as below<br>
+![demo](https://raw.githubusercontent.com/hongguangKim/CustomLoding/master/Demo/animation2.png)
 Source
 ================
-播放顺序相关代码：
+layout相关代码：<br>
+```
+ <com.example.view.SmartLoading
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E91E63"
+        custom:dividerSize="2dp"
+        custom:smartColor="@android:color/white"
+        custom:smartCorner="2dp"
+        custom:smartSize="12dp"
+        custom:xCount="6"
+        custom:yCount="6" />
+```
+
+播放顺序相关代码：<br>
 ```
 private int getNextAnimChild(boolean isStart, int i) {
 		Log.i("index","index="+i);
