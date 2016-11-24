@@ -14,10 +14,10 @@
         android:layout_height="match_parent"
         android:background="#E91E63"
         custom:dividerSize="2dp"
-        custom:squareColor="@android:color/white"
-        custom:squareCorner="2dp"
-        custom:squareSize="12dp"
-        custom:xCount="4"
-        custom:yCount="1" />
+        custom:smartColor="@android:color/white"
+        custom:smartCorner="2dp"
+        custom:smartSize="12dp"
+        custom:xCount="6"
+        custom:yCount="6" />
 
 </RelativeLayout>

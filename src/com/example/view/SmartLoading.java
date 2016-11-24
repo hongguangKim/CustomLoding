@@ -3,6 +3,8 @@ package com.example.view;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.smartloading.R;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -16,17 +18,15 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
-import com.example.smartloading.R;
-
 /**
  * Created by growth on 11/19/16.
  */
 
 public class SmartLoading extends ViewGroup {
 
-	private static final int DEFAULT_SQUARE_COLOR = Color.WHITE;
-	private static final int DEFAULT_SQUARE_SIZE = 36;
-	private static final int DEFAULT_SQUARE_CORNER = 8;
+	private static final int DEFAULT_SMART_COLOR = Color.WHITE;
+	private static final int DEFAULT_SMART_SIZE = 36;
+	private static final int DEFAULT_SMART_CORNER = 8;
 	private static final int DEFAULT_DIVIDER_SIZE = 8;
 	private static final int DEFUALT_X_COUNT = 4;
 	private static final int DEFUALT_Y_COUNT = 3;
@@ -34,9 +34,9 @@ public class SmartLoading extends ViewGroup {
 			* (DEFUALT_Y_COUNT - 1);
 	private static final int DEFAULT_LAST_INDEX = DEFUALT_X_COUNT - 1;
 
-	private static int mSquareColor = DEFAULT_SQUARE_COLOR;
-	private static int mSquareSize = DEFAULT_SQUARE_SIZE;
-	private static int mSquareCorner = DEFAULT_SQUARE_CORNER;
+	private static int mSmartColor = DEFAULT_SMART_COLOR;
+	private static int mSmartSize = DEFAULT_SMART_SIZE;
+	private static int mSmartCorner = DEFAULT_SMART_CORNER;
 	private static int mDividerSize = DEFAULT_DIVIDER_SIZE;
 	private static int mXCount = DEFUALT_X_COUNT;
 	private static int mYCount = DEFUALT_Y_COUNT;
@@ -49,6 +49,7 @@ public class SmartLoading extends ViewGroup {
 	private List<Animation> startAnims = new ArrayList();
 	private List<Animation> reverseAnims = new ArrayList();
 
+	private int startIndex= mFirstIndex,endIndex=mLastIndex;
 	public SmartLoading(Context context) {
 		super(context);
 		init(context, null);
@@ -72,25 +73,25 @@ public class SmartLoading extends ViewGroup {
 		removeViewsIfNeeded();
 		if (attrs != null) {
 			TypedArray a = getContext().obtainStyledAttributes(attrs,
-					R.styleable.SquareLoading);
+					R.styleable.SmartLoading);
 
-			mSquareColor = a.getColor(R.styleable.SquareLoading_squareColor,
-					DEFAULT_SQUARE_COLOR);
-			mSquareSize = a.getDimensionPixelSize(
-					R.styleable.SquareLoading_squareSize, DEFAULT_SQUARE_SIZE);
-			mSquareCorner = a.getDimensionPixelSize(
-					R.styleable.SquareLoading_squareCorner,
-					DEFAULT_SQUARE_CORNER);
+			mSmartColor = a.getColor(R.styleable.SmartLoading_smartColor,
+					DEFAULT_SMART_COLOR);
+			mSmartSize = a.getDimensionPixelSize(
+					R.styleable.SmartLoading_smartSize, DEFAULT_SMART_SIZE);
+			mSmartCorner = a.getDimensionPixelSize(
+					R.styleable.SmartLoading_smartCorner,
+					DEFAULT_SMART_CORNER);
 			mDividerSize = a
 					.getDimensionPixelSize(
-							R.styleable.SquareLoading_dividerSize,
+							R.styleable.SmartLoading_dividerSize,
 							DEFAULT_DIVIDER_SIZE);
 
-			int xCount = a.getInteger(R.styleable.SquareLoading_xCount,
+			int xCount = a.getInteger(R.styleable.SmartLoading_xCount,
 					DEFUALT_X_COUNT);
-			int yCount = a.getInteger(R.styleable.SquareLoading_yCount,
+			int yCount = a.getInteger(R.styleable.SmartLoading_yCount,
 					DEFUALT_Y_COUNT);
-			if (xCount >= 2 && xCount <= 6) {
+			if (xCount >= 1 && xCount <= 6) {
 				mXCount = xCount;
 			}
 			if (yCount >= 1 && yCount <= 6) {
@@ -98,10 +99,10 @@ public class SmartLoading extends ViewGroup {
 			}
 			a.recycle();
 
-			mFirstIndex = mXCount * (mYCount - 1);
-			mLastIndex = mXCount - 1;
+			startIndex=mFirstIndex = mXCount * (mYCount - 1);
+			endIndex=mLastIndex = mXCount - 1;
 		}
-		initSquare(context);
+		initSmart(context);
 		initAnim();
 	}
 
@@ -111,11 +112,11 @@ public class SmartLoading extends ViewGroup {
 		}
 	}
 
-	private void initSquare(Context context) {
+	private void initSmart(Context context) {
 		GradientDrawable gradientDrawable = new GradientDrawable();
-		gradientDrawable.setColor(mSquareColor);
-		gradientDrawable.setSize(mSquareSize, mSquareSize);
-		gradientDrawable.setCornerRadius(mSquareCorner);
+		gradientDrawable.setColor(mSmartColor);
+		gradientDrawable.setSize(mSmartSize, mSmartSize);
+		gradientDrawable.setCornerRadius(mSmartCorner);
 		for (int i = 0; i < mXCount * mYCount; i++) {
 			ImageView image = new ImageView(context);
 			image.setImageDrawable(gradientDrawable);
@@ -125,7 +126,7 @@ public class SmartLoading extends ViewGroup {
 
 	private void initAnim() {
         for (int i = 0; i < getChildCount(); i++) {
-            ScaleAnimation startAnim = new ScaleAnimation(0,1,0,1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,   
+            ScaleAnimation startAnim = new ScaleAnimation(1,0,1,0, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,   
                     0.5f);
             startAnim.setDuration(300);
             startAnim.setFillAfter(true);
@@ -134,8 +135,7 @@ public class SmartLoading extends ViewGroup {
             startAnim.setAnimationListener(new Animation.AnimationListener() {
                 @Override
                 public void onAnimationStart(Animation animation) {
-                    if (finalI != mLastIndex) {
-                    	
+                    if (finalI != endIndex) {
                     	final int index = getNextAnimChild(true, finalI);
                         if (index > mXCount * (mYCount - 1)) {
                             postDelayed(new Runnable() {
@@ -156,11 +156,12 @@ public class SmartLoading extends ViewGroup {
                 }
                 @Override
                 public void onAnimationEnd(Animation animation) {
-                    if (finalI == mLastIndex) {
+                    if (finalI == endIndex) {
+                    	mLastIndex = endIndex;
                         postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                startReverseAnim(mLastIndex);
+                                startReverseAnim(endIndex);
                             }
                         }, 300);
                     }
@@ -172,7 +173,7 @@ public class SmartLoading extends ViewGroup {
             });
             startAnims.add(startAnim);
 
-            ScaleAnimation reverseAnim = new ScaleAnimation(1,0,1,0, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,   
+            ScaleAnimation reverseAnim = new ScaleAnimation(0,1,0,1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,   
                     0.5f);
             reverseAnim.setDuration(300);
             reverseAnim.setFillAfter(true);
@@ -181,7 +182,7 @@ public class SmartLoading extends ViewGroup {
             reverseAnim.setAnimationListener(new Animation.AnimationListener() {
                 @Override
                 public void onAnimationStart(Animation animation) {
-                    if (finalI1 != mFirstIndex) {
+                    if (finalI1 != startIndex) {
                     	final int index = getNextAnimChild(false, finalI);
                         if (index < mXCount) {
                             postDelayed(new Runnable() {
@@ -203,11 +204,12 @@ public class SmartLoading extends ViewGroup {
 
                 @Override
                 public void onAnimationEnd(Animation animation) {
-                    if (finalI1 == mFirstIndex) {
+                    if (finalI1 == startIndex) {
+                    	mFirstIndex=startIndex;
                         postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                startRotateAnim(mFirstIndex);
+                                startRotateAnim(startIndex);
                             }
                         }, 300);
                     }
@@ -225,7 +227,7 @@ public class SmartLoading extends ViewGroup {
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		super.onSizeChanged(w, h, oldw, oldh);
 		if (getChildCount() > 0) {
-			startRotateAnim(mFirstIndex);
+			startRotateAnim(startIndex);
 		}
 	}
 
@@ -237,9 +239,9 @@ public class SmartLoading extends ViewGroup {
 		int sizeHeight = MeasureSpec.getSize(heightMeasureSpec);
 		measureChildren(widthMeasureSpec, heightMeasureSpec);
 
-		int minWidth = mSquareSize * (mXCount + 1) + (mXCount - 1)
+		int minWidth = mSmartSize * (mXCount + 1) + (mXCount - 1)
 				* mDividerSize;
-		int minHeight = mSquareSize * (mYCount + 1) + (mYCount - 1)
+		int minHeight = mSmartSize * (mYCount + 1) + (mYCount - 1)
 				* mDividerSize;
 
 		if (widthMode == MeasureSpec.AT_MOST
@@ -266,13 +268,13 @@ public class SmartLoading extends ViewGroup {
 		int l, t, r, b;
 		for (int i = 0; i < getChildCount(); i++) {
 			View child = getChildAt(i);
-			l = (i % mXCount + 1) * mSquareSize + (i % mXCount) * mDividerSize
+			l = (i % mXCount + 1) * mSmartSize + (i % mXCount) * mDividerSize
 					+ mPaddingLeft;
-			t = (i / mXCount + 1) * mSquareSize + (i / mXCount) * mDividerSize
+			t = (i / mXCount + 1) * mSmartSize + (i / mXCount) * mDividerSize
 					+ mPaddingTop;
-			r = ((i % mXCount) + 2) * mSquareSize + (i % mXCount)
+			r = ((i % mXCount) + 2) * mSmartSize + (i % mXCount)
 					* mDividerSize + mPaddingLeft;
-			b = ((i / mXCount) + 2) * mSquareSize + (i / mXCount)
+			b = ((i / mXCount) + 2) * mSmartSize + (i / mXCount)
 					* mDividerSize + mPaddingTop;
 			child.layout(l, t, r, b);
 		}
@@ -289,24 +291,18 @@ public class SmartLoading extends ViewGroup {
 			getChildAt(index).startAnimation(reverseAnims.get(index));
 		}
 	}
-
+	
 	private int getNextAnimChild(boolean isStart, int i) {
 		Log.i("index","index="+i);
 		int index;
 		if (isStart) {
-			if(mYCount==1)
-				return ++i;
 			if (i < mXCount) {
-				i += (mXCount - 1) * mYCount;
-				return i;
+				return ++mFirstIndex;
 			}
 			index = i % mXCount + (i / mXCount - 1) * mXCount;
 		} else {
-			if(mYCount==1)
-				return --i;
 			if (i > mXCount * (mYCount - 1)) {
-				i -= mXCount * (mYCount - 1) + 1;
-				return i;
+				return --mLastIndex;
 			}
 			index = i + mXCount;
 		}

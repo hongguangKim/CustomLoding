@@ -1209,6 +1209,35 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int singleChoiceItemLayout=0x7f0100cb;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int smartColor=0x7f0100ce;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int smartCorner=0x7f0100d0;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int smartSize=0x7f0100cf;
         /**  Whether bars should rotate or not during transition 
          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
@@ -1237,35 +1266,6 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int splitTrack=0x7f0100c6;
-        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int squareColor=0x7f0100ce;
-        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
-Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
-in (inches), mm (millimeters).
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int squareCorner=0x7f0100d0;
-        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
-Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
-in (inches), mm (millimeters).
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int squareSize=0x7f0100cf;
         /**  State identifier indicating the popup will be above the anchor. 
          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
@@ -4818,6 +4818,121 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr name com.example.smartloading:voiceIcon
         */
         public static final int SearchView_voiceIcon = 12;
+        /** Attributes that can be used with a SmartLoading.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #SmartLoading_dividerSize com.example.smartloading:dividerSize}</code></td><td></td></tr>
+           <tr><td><code>{@link #SmartLoading_smartColor com.example.smartloading:smartColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #SmartLoading_smartCorner com.example.smartloading:smartCorner}</code></td><td></td></tr>
+           <tr><td><code>{@link #SmartLoading_smartSize com.example.smartloading:smartSize}</code></td><td></td></tr>
+           <tr><td><code>{@link #SmartLoading_xCount com.example.smartloading:xCount}</code></td><td></td></tr>
+           <tr><td><code>{@link #SmartLoading_yCount com.example.smartloading:yCount}</code></td><td></td></tr>
+           </table>
+           @see #SmartLoading_dividerSize
+           @see #SmartLoading_smartColor
+           @see #SmartLoading_smartCorner
+           @see #SmartLoading_smartSize
+           @see #SmartLoading_xCount
+           @see #SmartLoading_yCount
+         */
+        public static final int[] SmartLoading = {
+            0x7f0100ce, 0x7f0100cf, 0x7f0100d0, 0x7f0100d1,
+            0x7f0100d2, 0x7f0100d3
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.example.smartloading.R.attr#dividerSize}
+          attribute's value can be found in the {@link #SmartLoading} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.smartloading:dividerSize
+        */
+        public static final int SmartLoading_dividerSize = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.example.smartloading.R.attr#smartColor}
+          attribute's value can be found in the {@link #SmartLoading} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.smartloading:smartColor
+        */
+        public static final int SmartLoading_smartColor = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.example.smartloading.R.attr#smartCorner}
+          attribute's value can be found in the {@link #SmartLoading} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.smartloading:smartCorner
+        */
+        public static final int SmartLoading_smartCorner = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.example.smartloading.R.attr#smartSize}
+          attribute's value can be found in the {@link #SmartLoading} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.smartloading:smartSize
+        */
+        public static final int SmartLoading_smartSize = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.example.smartloading.R.attr#xCount}
+          attribute's value can be found in the {@link #SmartLoading} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.smartloading:xCount
+        */
+        public static final int SmartLoading_xCount = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.example.smartloading.R.attr#yCount}
+          attribute's value can be found in the {@link #SmartLoading} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.smartloading:yCount
+        */
+        public static final int SmartLoading_yCount = 5;
         /** Attributes that can be used with a Spinner.
            <p>Includes the following attributes:</p>
            <table>
@@ -4876,121 +4991,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr name com.example.smartloading:popupTheme
         */
         public static final int Spinner_popupTheme = 3;
-        /** Attributes that can be used with a SquareLoading.
-           <p>Includes the following attributes:</p>
-           <table>
-           <colgroup align="left" />
-           <colgroup align="left" />
-           <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SquareLoading_dividerSize com.example.smartloading:dividerSize}</code></td><td></td></tr>
-           <tr><td><code>{@link #SquareLoading_squareColor com.example.smartloading:squareColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #SquareLoading_squareCorner com.example.smartloading:squareCorner}</code></td><td></td></tr>
-           <tr><td><code>{@link #SquareLoading_squareSize com.example.smartloading:squareSize}</code></td><td></td></tr>
-           <tr><td><code>{@link #SquareLoading_xCount com.example.smartloading:xCount}</code></td><td></td></tr>
-           <tr><td><code>{@link #SquareLoading_yCount com.example.smartloading:yCount}</code></td><td></td></tr>
-           </table>
-           @see #SquareLoading_dividerSize
-           @see #SquareLoading_squareColor
-           @see #SquareLoading_squareCorner
-           @see #SquareLoading_squareSize
-           @see #SquareLoading_xCount
-           @see #SquareLoading_yCount
-         */
-        public static final int[] SquareLoading = {
-            0x7f0100ce, 0x7f0100cf, 0x7f0100d0, 0x7f0100d1,
-            0x7f0100d2, 0x7f0100d3
-        };
-        /**
-          <p>This symbol is the offset where the {@link com.example.smartloading.R.attr#dividerSize}
-          attribute's value can be found in the {@link #SquareLoading} array.
-
-
-          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
-Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
-in (inches), mm (millimeters).
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name com.example.smartloading:dividerSize
-        */
-        public static final int SquareLoading_dividerSize = 3;
-        /**
-          <p>This symbol is the offset where the {@link com.example.smartloading.R.attr#squareColor}
-          attribute's value can be found in the {@link #SquareLoading} array.
-
-
-          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name com.example.smartloading:squareColor
-        */
-        public static final int SquareLoading_squareColor = 0;
-        /**
-          <p>This symbol is the offset where the {@link com.example.smartloading.R.attr#squareCorner}
-          attribute's value can be found in the {@link #SquareLoading} array.
-
-
-          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
-Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
-in (inches), mm (millimeters).
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name com.example.smartloading:squareCorner
-        */
-        public static final int SquareLoading_squareCorner = 2;
-        /**
-          <p>This symbol is the offset where the {@link com.example.smartloading.R.attr#squareSize}
-          attribute's value can be found in the {@link #SquareLoading} array.
-
-
-          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
-Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
-in (inches), mm (millimeters).
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name com.example.smartloading:squareSize
-        */
-        public static final int SquareLoading_squareSize = 1;
-        /**
-          <p>This symbol is the offset where the {@link com.example.smartloading.R.attr#xCount}
-          attribute's value can be found in the {@link #SquareLoading} array.
-
-
-          <p>Must be an integer value, such as "<code>100</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name com.example.smartloading:xCount
-        */
-        public static final int SquareLoading_xCount = 4;
-        /**
-          <p>This symbol is the offset where the {@link com.example.smartloading.R.attr#yCount}
-          attribute's value can be found in the {@link #SquareLoading} array.
-
-
-          <p>Must be an integer value, such as "<code>100</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name com.example.smartloading:yCount
-        */
-        public static final int SquareLoading_yCount = 5;
         /** Attributes that can be used with a SwitchCompat.
            <p>Includes the following attributes:</p>
            <table>
